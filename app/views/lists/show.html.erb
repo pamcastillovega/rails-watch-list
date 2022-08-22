@@ -1,15 +1,13 @@
 <div class="container">
   <h1><%= @list.name %></h1>
-  <ul class="list-group">
+  <ul class="list-group" data-controller="hello">
   <% @list.bookmarks.each do |bookmark| %>
     <li class="list-group-item"><%= bookmark.movie.title %></li>
     <li class="list-group-item"><%= bookmark.movie.rating %></li>
     <li class="list-group-item"><%= bookmark.movie.overview %></li>
     <li class="list-group-item"><%= bookmark.comment %></li>
     <%#= link_to "Delete", bookmark, data:{turbo_method: :delete} %>
-    <%= link_to 'Delete',
-                bookmark,
-                data: {turbo_method: :delete} %>
+    <%= link_to 'Delete', bookmark, data: {turbo_method: :delete} %>
   <% end %>
   </ul>
   <%= link_to "Add movie to list", new_list_bookmark_path(@list) %>
